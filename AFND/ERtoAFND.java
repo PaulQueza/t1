@@ -3,10 +3,10 @@ package AFND;
 import java.util.ArrayList;
 
 public class ERtoAFND{
-    String er; datos datos; elavorar_transiciones transiciones;
+    String er; datosAFND datos; elavorar_transiciones transiciones;
     public ERtoAFND(String er){
         this.er=er;
-        datos = new datos(er);
+        datos = new datosAFND(er);
         transiciones = new elavorar_transiciones(er);
         procesoContruccion();
     }

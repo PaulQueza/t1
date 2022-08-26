@@ -6,14 +6,14 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class datos{
+public class datosAFND{
     String er;
     ArrayList<String> alfabeto;
     ArrayList<Integer> todos_estados;
     int s,f;
     File TH=new File("Archivos/TH.txt");
 
-    public datos(String er){
+    public datosAFND(String er){
         this.er=er;
         alfabeto= new ArrayList<String>();
         todos_estados= new ArrayList<Integer>();

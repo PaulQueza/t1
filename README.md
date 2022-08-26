@@ -1,7 +1,7 @@
 #Datos importantes:
-    - Solo se puede agregar una letra por cada estado, por ejemplo un mal ejemplo de entrada:
-    - ab.c , El programa no lo correra de forma adecuada, debido a que solo se permite una letra/simbolo por cada transicion
-    - No editar, mover o eliminar los archivos TXT.
+- Solo se puede agregar una letra por cada estado, por ejemplo un mal ejemplo de entrada:
+- ab.c , El programa no lo correra de forma adecuada, debido a que solo se permite una letra/simbolo por cada transicion
+- No editar, mover o eliminar los archivos TXT.
 #Problemas:
     - Complejidad al ordenar el txt para que se vea decente
 #Parches: 

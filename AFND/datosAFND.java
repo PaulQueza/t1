@@ -2,7 +2,6 @@ package AFND;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -36,23 +35,20 @@ public class datosAFND{
         alfabeto.addAll(set);
     }
     public void obtenerEstados(){
-        String line="";int posicion=0,estado1,estado2;
+        String line="";int posicion=0,estadoFinal=0;
         try {
             Scanner input = new Scanner(TH);
             while (input.hasNext()) {
                 line = input.next();
                 if(posicion==0){
                     // Primer estado
-                    estado1=Integer.parseInt(line);
-                    todos_estados.add(estado1);
                     posicion++;
                 }else if(posicion==1){
                     // Simbolo
                     posicion++;
                 }else{
                     // Segundo estado
-                    estado2=Integer.parseInt(line);
-                    todos_estados.add(estado2);
+                    estadoFinal=Integer.parseInt(line);
                     posicion=0;
                 }
             }
@@ -60,10 +56,10 @@ public class datosAFND{
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        HashSet<Integer> set = new HashSet<>(todos_estados);
-        todos_estados.clear();
-        todos_estados.addAll(set);
-        Collections.sort(todos_estados);
+        for(int i=0;i<estadoFinal;i++){
+            System.out.println("Estado agregado --->"+i);
+            todos_estados.add(i);
+        }
     }
     public void obtenerSyF(){
         int primero=0,posicion=0,estadoFinal=0, estadoInicial=0;String line="";

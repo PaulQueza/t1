@@ -4,7 +4,6 @@ Datos importantes:
     - No editar, mover o eliminar los archivos TXT.
 Problemas:
     - Complejidad al ordenar el txt para que se vea decentes
-    - Problema con la direccion de los archivos
 Parches: 
     - Hasta ahora no hay ningun parche
 Ejemplos de usos:

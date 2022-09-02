@@ -3,7 +3,8 @@ Datos importantes:
     - ab.c , El programa no lo correra de forma adecuada, debido a que solo se permite una letra/simbolo por cada transicion
     - No editar, mover o eliminar los archivos TXT.
 Problemas:
-    - Complejidad al ordenar el txt para que se vea decente
+    - Complejidad al ordenar el txt para que se vea decentes
+    - Problema con la direccion de los archivos
 Parches: 
     - Hasta ahora no hay ningun parche
 Ejemplos de usos:

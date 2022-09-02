@@ -10,7 +10,7 @@ public class datosAFND{
     ArrayList<String> alfabeto;
     ArrayList<Integer> todos_estados;
     int s,f;
-    File TH=new File("Archivos/TH.txt");
+    File TH=new File("t1/Archivos/TH.txt");
 
     public datosAFND(String er){
         this.er=er;

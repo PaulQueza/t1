@@ -13,8 +13,8 @@ import java.util.Scanner;
 public class elavorar_tabla_e {
     ArrayList<Integer> listaestados= new ArrayList<Integer>();
     ArrayList<Integer> todosEstados= new ArrayList<Integer>();
-    File TH=new File("Archivos/TH.txt");
-    File TABLA_E=new File("Archivos/tabla_e.txt"); FileWriter fw;
+    File TH=new File("t1/Archivos/TH.txt");
+    File TABLA_E=new File("t1/Archivos/tabla_e.txt"); FileWriter fw;
 
     public elavorar_tabla_e(ArrayList<Integer> todosEstados){
         try{

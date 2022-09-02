@@ -14,8 +14,8 @@ public class elavorar_tabla_transiciones {
     ArrayList<String> alfabeto;
     ArrayList<Integer> todosEstados;
     ArrayList<Integer> listaestados;
-    File TH=new File("Archivos/TH.txt");
-    File TABLA_TRANSICIONES =new File("Archivos/tabla_transiciones.txt"); FileWriter fw;
+    File TH=new File("t1/Archivos/TH.txt");
+    File TABLA_TRANSICIONES =new File("t1/Archivos/tabla_transiciones.txt"); FileWriter fw;
     public elavorar_tabla_transiciones(ArrayList<String> alfabeto,ArrayList<Integer> todosEstados){
         try{
             fw = new FileWriter(TABLA_TRANSICIONES);

@@ -14,12 +14,12 @@ public class elavorar_transiciones{
     String er; 
     boolean E1_usado=false,E2_usado=false, AUX1_usado=false, AUX2_usado=false,AUX3_usado=false;
     ArrayList<String> automata = new ArrayList<String>();FileWriter fw;
-    File E1 = new File("t1/Archivos/E1.txt");
-    File E2 = new File("t1/Archivos/E2.txt");
-    File TH = new File("t1/Archivos/TH.txt");
-    File AUX1 = new File("t1/Archivos/AYUDA1.txt");
-    File AUX2 = new File("t1/Archivos/AYUDA2.txt");
-    File AUX3 = new File("t1/Archivos/AYUDA3.txt");
+    File E1 = new File("./Archivos/E1.txt");
+    File E2 = new File("./Archivos/E2.txt");
+    File TH = new File("./Archivos/TH.txt");
+    File AUX1 = new File("./Archivos/AYUDA1.txt");
+    File AUX2 = new File("./Archivos/AYUDA2.txt");
+    File AUX3 = new File("./Archivos/AYUDA3.txt");
     public elavorar_transiciones(String er){
         // Abrimos y borramos todo lo que tenga los archivos .txt
         try{

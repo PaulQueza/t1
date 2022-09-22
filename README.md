@@ -27,6 +27,7 @@
     Funciona AFND->AFD
 ## Link para estudio:
 	 (AFND->AFD) https://www.youtube.com/watch?v=km-yS9BUDFA&ab_channel=MauricioQuirogaLipe
+	 [PDF AUTOMATAS](ProcedimientoCompleto.pdf)
 ## DEBUG: 
     Usualmente muere con los parentesis, por lo demas funciona de maravilla.
     Un buen ejemplo para comprobar es usar (a.b)|(c.d*) entre sus distintas combinaciones

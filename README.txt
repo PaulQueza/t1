@@ -30,4 +30,3 @@ Link para estudio:
 	(AFND->AFD) https://www.youtube.com/watch?v=km-yS9BUDFA&ab_channel=MauricioQuirogaLipe
 DEBUG: 
     - Un buen ejemplo para comprobar es usar (a.b)|(c.d*) entre sus distintas combinaciones
-        

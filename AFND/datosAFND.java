@@ -47,7 +47,7 @@ public class datosAFND{
                     // Simbolo
                     posicion++;
                 }else{
-                    // Segundo estado
+                    // Segundo estado     
                     estadoFinal=Integer.parseInt(line);
                     posicion=0;
                 }
@@ -56,7 +56,7 @@ public class datosAFND{
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        for(int i=0;i<estadoFinal;i++){
+        for(int i=0;i<=estadoFinal;i++){
             System.out.println("Estado agregado --->"+i);
             todos_estados.add(i);
         }

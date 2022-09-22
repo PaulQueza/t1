@@ -83,7 +83,6 @@ public class elavorar_tabla_transiciones {
                     }
                     posicion=0;
                 }
-                
             }
             input.close();
         } catch (Exception ex) {

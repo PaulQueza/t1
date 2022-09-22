@@ -556,6 +556,5 @@ public class elavorar_transiciones{
     }
     public void ordenarER(File TH){
         //Funcion que sirve para reordenar el automata para luego mostrarlo
-        
     }
 }

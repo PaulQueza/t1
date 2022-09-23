@@ -1,3 +1,4 @@
+# T1 Maquinas Abstractas 2022-2
 ## Datos importantes:
     Solo se puede agregar una letra por cada estado, por ejemplo un mal ejemplo de entrada:
     ab.c , El programa no lo correra de forma adecuada, debido a que solo se permite una letra/simbolo por cada transicion
@@ -27,7 +28,6 @@
     Funciona AFND->AFD
 ## Link para estudio:
 	 (AFND->AFD) https://www.youtube.com/watch?v=km-yS9BUDFA&ab_channel=MauricioQuirogaLipe
-	 [PDF AUTOMATAS](ProcedimientoCompleto.pdf)
 ## DEBUG: 
     Usualmente muere con los parentesis, por lo demas funciona de maravilla.
     Un buen ejemplo para comprobar es usar (a.b)|(c.d*) entre sus distintas combinaciones

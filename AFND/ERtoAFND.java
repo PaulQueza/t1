@@ -1,13 +1,12 @@
 package AFND;
-
 import java.util.ArrayList;
 
 public class ERtoAFND{
-    String er; datosAFND datos; elavorar_transiciones transiciones;
+    String er; datosAFND datos; elaborar_transiciones transiciones;
     public ERtoAFND(String er){
         this.er=er;
         datos = new datosAFND(er);
-        transiciones = new elavorar_transiciones(er);
+        transiciones = new elaborar_transiciones(er,datos.getAlfabeto());
         procesoContruccion();
     }
     public void procesoContruccion(){

@@ -8,9 +8,13 @@ public class datosAFD {
     ArrayList<String> alfabeto;
     ArrayList<Integer> todos_estados;
     File AFD=new File("./Archivos/AFD.txt");
-    int s,f;
+    File TABLA_FINAL =new File("./Archivos/tabla_final.txt");
+    ArrayList<Integer> f;
+    int s;
+
     public datosAFD(ArrayList<String> alfabeto){
         todos_estados = new ArrayList<Integer>();
+        f = new ArrayList<Integer>();
         this.alfabeto=alfabeto;
         obtenerEstados();
         obtenerSyF();
@@ -22,14 +26,14 @@ public class datosAFD {
             while (input.hasNext()) {
                 line = input.next();
                 if(posicion==0){
-                    // Primer estado
+                    // Primer estado (SI LLEGAMOS AL FINAL DEL TXT ENCONTRAMOS EN EL PRIMER ESTADO EL ULTIMO ESTADO DEL AUTOMATA)
+                    estadoFinal=Integer.parseInt(line);
                     posicion++;
                 }else if(posicion==1){
                     // Simbolo
                     posicion++;
                 }else{
                     // Segundo estado     
-                    estadoFinal=Integer.parseInt(line);
                     posicion=0;
                 }
             }
@@ -43,33 +47,39 @@ public class datosAFD {
         }
     }
     public void obtenerSyF(){
-        int primero=0,posicion=0,estadoFinal=0, estadoInicial=0;String line="";
+        int posicion=0,estado=0;String line="";
+        // La cantidad de columnas de el txt, la suma del alfabeto mas la columna
+        // q(Numero de estado ) y e(Conjunto del estado)
+        int cantidad_de_columnas = alfabeto.size() + 2;
         try {
-            Scanner input = new Scanner(AFD);
+            Scanner input = new Scanner(TABLA_FINAL);
+            // Nos saltamos el encabezado
+            input.nextLine();
             while (input.hasNext()) {
                 line = input.next();
-                if(posicion==0){
-                    if(primero==0){
-                        estadoInicial=Integer.parseInt(line);
+                if (posicion == 0) {
+                    // Columna q
+                    estado = Integer.parseInt(line);
+                    posicion++;
+                } else if (posicion == 1) {
+                    // Columna estados
+                    posicion++;
+                } else if (posicion < cantidad_de_columnas) {
+                    // Columna de el caracter del alafabeto
+                    posicion++;
+                }else{
+                    // Columna donde se menciona si es un estado final o no
+                    if(line.equals("FINAL")){
+                        this.f.add(estado);
                     }
-                    // Primer estado de la linea
-                    posicion++;
-                }else if(posicion==1){
-                    // Simbolo
-                    posicion++;
-                }else if(posicion==2){
-                    // Ultimo estado de la linea
-                    estadoFinal=Integer.parseInt(line);
-                    posicion=0;
+                    posicion = 0;
                 }
-                primero++;
             }
             input.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        this.s=estadoInicial;
-        this.f=estadoFinal;
+        this.s=0;
     }
     public void imprimirAlfabeto(){
         // Simplemente recorremos nuestra lista mostrando nuestro alfabeto
@@ -98,6 +108,14 @@ public class datosAFD {
     public void imprimirSyF(){
         // Simplemente mostramos el estado inicial y final
         System.out.println("S={"+s+"}");
-        System.out.println("F={"+f+"}");
+        System.out.print("F={");
+        for(int i = 0; i<f.size(); i++){
+            if(i+1==f.size()){
+                System.out.print(f.get(i));
+            }else{
+                System.out.print(f.get(i)+",");
+            }
+        }
+        System.out.println("}");
     }   
 }

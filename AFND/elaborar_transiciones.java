@@ -10,7 +10,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class elavorar_transiciones{
+public class elaborar_transiciones{
     String er; 
     boolean E1_usado=false,E2_usado=false, AUX1_usado=false, AUX2_usado=false,AUX3_usado=false;
     ArrayList<String> automata = new ArrayList<String>();FileWriter fw;
@@ -20,7 +20,7 @@ public class elavorar_transiciones{
     File AUX1 = new File("./Archivos/AYUDA1.txt");
     File AUX2 = new File("./Archivos/AYUDA2.txt");
     File AUX3 = new File("./Archivos/AYUDA3.txt");
-    public elavorar_transiciones(String er){
+    public elaborar_transiciones(String er, ArrayList<String> alfabeto){
         // Abrimos y borramos todo lo que tenga los archivos .txt
         try{
             fw = new FileWriter(E1);
@@ -31,6 +31,10 @@ public class elavorar_transiciones{
             fw = new FileWriter(AUX3);
         } catch (IOException e) {
             System.out.println("ERROR");
+        }
+        // Agregamos el rizo
+        for(int i=0; i<alfabeto.size(); i++){
+            escribirAutomata(0, 0, alfabeto.get(i), TH);
         }
         this.er=er;
         recorrerER();

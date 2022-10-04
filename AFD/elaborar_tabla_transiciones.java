@@ -10,13 +10,13 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class elavorar_tabla_transiciones {
+public class elaborar_tabla_transiciones {
     ArrayList<String> alfabeto;
     ArrayList<Integer> todosEstados;
     ArrayList<Integer> listaestados;
     File TH=new File("./Archivos/TH.txt");
     File TABLA_TRANSICIONES =new File("./Archivos/tabla_transiciones.txt"); FileWriter fw;
-    public elavorar_tabla_transiciones(ArrayList<String> alfabeto,ArrayList<Integer> todosEstados){
+    public elaborar_tabla_transiciones(ArrayList<String> alfabeto,ArrayList<Integer> todosEstados){
         try{
             fw = new FileWriter(TABLA_TRANSICIONES);
         } catch (IOException e) {

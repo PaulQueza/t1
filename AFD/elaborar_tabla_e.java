@@ -10,13 +10,13 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class elavorar_tabla_e {
+public class elaborar_tabla_e {
     ArrayList<Integer> listaestados= new ArrayList<Integer>();
     ArrayList<Integer> todosEstados= new ArrayList<Integer>();
     File TH=new File("./Archivos/TH.txt");
     File TABLA_E=new File("./Archivos/tabla_e.txt"); FileWriter fw;
 
-    public elavorar_tabla_e(ArrayList<Integer> todosEstados){
+    public elaborar_tabla_e(ArrayList<Integer> todosEstados){
         try{
             fw = new FileWriter(TABLA_E);
         } catch (IOException e) {

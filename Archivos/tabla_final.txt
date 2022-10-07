@@ -1,6 +1,11 @@
 q e a b
 0 0 0,1,2 0 NOFINAL
+<<<<<<< Updated upstream
 1 0,1,2 0,1,2 0,3,4,5,9 NOFINAL
 2 0,3,4,5,9 0,1,2,6,7 0 FINAL
 3 0,1,2,6,7 0,1,2 0,3,4,5,8,9 NOFINAL
 4 0,3,4,5,8,9 0,1,2,6,7 0 FINAL
+=======
+1 0,1,2 0,1,2 0,3 NOFINAL
+2 0,3 0,1,2 0 FINAL
+>>>>>>> Stashed changes

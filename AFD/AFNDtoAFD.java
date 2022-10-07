@@ -20,6 +20,7 @@ public class AFNDtoAFD {
         // Aqui se imprimen todos los datos
         datos.imprimirEstados();
         datos.imprimirAlfabeto();
+        datos.imprimirAFD();
         datos.imprimirSyF();
     }
     

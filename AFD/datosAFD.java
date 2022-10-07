@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class datosAFD {
     ArrayList<String> alfabeto;
     ArrayList<Integer> todos_estados;
+<<<<<<< Updated upstream
     File AFD=new File("./Archivos/AFD.txt");
     File TABLA_FINAL =new File("./Archivos/tabla_final.txt");
     ArrayList<Integer> f;
@@ -16,38 +17,70 @@ public class datosAFD {
         todos_estados = new ArrayList<Integer>();
         f = new ArrayList<Integer>();
         this.alfabeto=alfabeto;
+=======
+    File AFD = new File("./Archivos/AFD.txt");
+    File TABLA_FINAL = new File("./Archivos/tabla_final.txt");
+    ArrayList<Integer> f;
+    int s;
+
+    public datosAFD(ArrayList<String> alfabeto) {
+        todos_estados = new ArrayList<Integer>();
+        f = new ArrayList<Integer>();
+        this.alfabeto = alfabeto;
+>>>>>>> Stashed changes
         obtenerEstados();
         obtenerSyF();
     }
-    public void obtenerEstados(){
-        String line="";int posicion=0,estadoFinal=0;
+
+    public void obtenerEstados() {
+        String line = "";
+        int posicion = 0, estadoFinal = 0;
         try {
             Scanner input = new Scanner(AFD);
             while (input.hasNext()) {
                 line = input.next();
+<<<<<<< Updated upstream
                 if(posicion==0){
                     // Primer estado (SI LLEGAMOS AL FINAL DEL TXT ENCONTRAMOS EN EL PRIMER ESTADO EL ULTIMO ESTADO DEL AUTOMATA)
                     estadoFinal=Integer.parseInt(line);
+=======
+                if (posicion == 0) {
+                    // Primer estado (SI LLEGAMOS AL FINAL DEL TXT ENCONTRAMOS EN EL PRIMER ESTADO
+                    // EL ULTIMO ESTADO DEL AUTOMATA)
+                    estadoFinal = Integer.parseInt(line);
+>>>>>>> Stashed changes
                     posicion++;
-                }else if(posicion==1){
+                } else if (posicion == 1) {
                     // Simbolo
                     posicion++;
+<<<<<<< Updated upstream
                 }else{
                     // Segundo estado     
                     posicion=0;
+=======
+                } else {
+                    // Segundo estado
+                    posicion = 0;
+>>>>>>> Stashed changes
                 }
             }
             input.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        for(int i=0;i<=estadoFinal;i++){
-            System.out.println("Estado agregado --->"+i);
+        for (int i = 0; i <= estadoFinal; i++) {
             todos_estados.add(i);
         }
     }
+<<<<<<< Updated upstream
     public void obtenerSyF(){
         int posicion=0,estado=0;String line="";
+=======
+
+    public void obtenerSyF() {
+        int posicion = 0, estado = 0;
+        String line = "";
+>>>>>>> Stashed changes
         // La cantidad de columnas de el txt, la suma del alfabeto mas la columna
         // q(Numero de estado ) y e(Conjunto del estado)
         int cantidad_de_columnas = alfabeto.size() + 2;
@@ -63,6 +96,7 @@ public class datosAFD {
                     posicion++;
                 } else if (posicion == 1) {
                     // Columna estados
+<<<<<<< Updated upstream
                     posicion++;
                 } else if (posicion < cantidad_de_columnas) {
                     // Columna de el caracter del alafabeto
@@ -70,6 +104,15 @@ public class datosAFD {
                 }else{
                     // Columna donde se menciona si es un estado final o no
                     if(line.equals("FINAL")){
+=======
+                    posicion++;
+                } else if (posicion < cantidad_de_columnas) {
+                    // Columna de el caracter del alafabeto
+                    posicion++;
+                } else {
+                    // Columna donde se menciona si es un estado final o no
+                    if (line.equals("FINAL")) {
+>>>>>>> Stashed changes
                         this.f.add(estado);
                     }
                     posicion = 0;
@@ -79,34 +122,77 @@ public class datosAFD {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+<<<<<<< Updated upstream
         this.s=0;
+=======
+        this.s = 0;
+>>>>>>> Stashed changes
     }
-    public void imprimirAlfabeto(){
+
+    public void imprimirAlfabeto() {
         // Simplemente recorremos nuestra lista mostrando nuestro alfabeto
         System.out.print("Sigma={");
-        for(int i = 0; i<alfabeto.size();i++){ 
+        for (int i = 0; i < alfabeto.size(); i++) {
             System.out.print(alfabeto.get(i));
-            if(i<alfabeto.size()-1){
+            if (i < alfabeto.size() - 1) {
                 System.out.print(",");
             }
         }
         System.out.print("}");
         System.out.println(" ");
     }
-    public void imprimirEstados(){
+
+    public void imprimirEstados() {
         // Simplemente recorremos nuestra lista mostrando todos los estados
         System.out.print("K={");
-        for(int i = 0; i<todos_estados.size();i++){ 
-            System.out.print("q"+todos_estados.get(i));
-            if(i<todos_estados.size()-1){
+        for (int i = 0; i < todos_estados.size(); i++) {
+            System.out.print("q" + todos_estados.get(i));
+            if (i < todos_estados.size() - 1) {
                 System.out.print(",");
             }
         }
         System.out.print("}");
         System.out.println(" ");
     }
-    public void imprimirSyF(){
+
+    public void imprimirAFD() {
+        // Leemos el archivo TH en donde esta el AFND
+        String line;
+        int posicion = 0;
+        String conexionEstados = "";
+        ArrayList<String> afd = new ArrayList<String>();
+        try {
+            Scanner input = new Scanner(AFD);
+            while (input.hasNext()) {
+                line = input.next();
+                if (posicion == 0) {
+                    // Primer estado
+                    conexionEstados = "q" + line;
+                    posicion++;
+                } else if (posicion == 1) {
+                    // Simbolo
+                    conexionEstados += ", " + line;
+                    posicion++;
+                } else {
+                    // Segundo estado
+                    conexionEstados += " ,q" + line;
+                    posicion = 0;
+                    afd.add(conexionEstados);
+                }
+            }
+            input.close();
+        } catch (Exception ex) {
+            System.out.println("ERROR AL LEER EL ARCHIVO");
+        }
+        System.out.println("Delta :");
+        for (int i = 0; i < afd.size(); i++) {
+            System.out.println("{ " + afd.get(i) + " }");
+        }
+    }
+
+    public void imprimirSyF() {
         // Simplemente mostramos el estado inicial y final
+<<<<<<< Updated upstream
         System.out.println("S={"+s+"}");
         System.out.print("F={");
         for(int i = 0; i<f.size(); i++){
@@ -118,4 +204,17 @@ public class datosAFD {
         }
         System.out.println("}");
     }   
+=======
+        System.out.println("S={" + s + "}");
+        System.out.print("F={");
+        for (int i = 0; i < f.size(); i++) {
+            if (i + 1 == f.size()) {
+                System.out.print(f.get(i));
+            } else {
+                System.out.print(f.get(i) + ",");
+            }
+        }
+        System.out.println("}");
+    }
+>>>>>>> Stashed changes
 }

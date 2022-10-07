@@ -26,7 +26,6 @@ public class desglosador {
                 }else{
                     guardarDatos.remove(guardarDatos.size()-1);
                 }
-                System.out.println(" ");
             }else{
                 terminar = false;
                 for(int j=guardarDatos.size()-1;( j>=0 && !terminar ); j--){

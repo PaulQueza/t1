@@ -17,9 +17,6 @@ public class datosAFND{
         alfabeto= new ArrayList<String>();
         todos_estados= new ArrayList<Integer>();
         s=0;f=0;
-        obtenerAlfabeto();
-        obtenerEstados();
-        obtenerSyF();
     }
     public void obtenerAlfabeto(){
         /* Para el alfabeto, guardamos todos los caracteres no "especiales" 
@@ -35,7 +32,7 @@ public class datosAFND{
         alfabeto.addAll(set);
     }
     public void obtenerEstados(){
-        String line="";int posicion=0,estadoFinal=0;
+        String line="";int posicion=0, estadoFinal=0;
         try {
             Scanner input = new Scanner(TH);
             while (input.hasNext()) {
@@ -54,10 +51,9 @@ public class datosAFND{
             }
             input.close();
         } catch (Exception ex) {
-            ex.printStackTrace();
+            System.out.println("ERROR AL LEER EL ARCHIVO");
         }
         for(int i=0;i<=estadoFinal;i++){
-            System.out.println("Estado agregado --->"+i);
             todos_estados.add(i);
         }
     }
@@ -114,6 +110,38 @@ public class datosAFND{
         System.out.print("}");
         System.out.println(" ");
     }
+    public void imprimirAFND(){
+        // Leemos el archivo TH en donde esta el AFND
+        String line; int posicion=0; String conexionEstados="";
+        ArrayList<String> afnd = new ArrayList<String>();
+        try {
+            Scanner input = new Scanner(TH);
+            while (input.hasNext()) {
+                line = input.next();
+                if(posicion==0){
+                    // Primer estado
+                    conexionEstados="q"+line;
+                    posicion++;
+                }else if(posicion==1){
+                    // Simbolo
+                    conexionEstados+=", "+line;
+                    posicion++;
+                }else{
+                    // Segundo estado
+                    conexionEstados+=" ,q"+line;
+                    posicion=0;
+                    afnd.add(conexionEstados);
+                }
+            }
+            input.close();
+        } catch (Exception ex) {
+            System.out.println("ERROR AL LEER EL ARCHIVO");
+        }
+        System.out.println("Delta :");
+        for(int i = 0; i<afnd.size(); i++){
+            System.out.println("{ "+afnd.get(i)+" }");
+        }
+    } 
     public void imprimirSyF(){
         // Simplemente mostramos el estado inicial y final
         System.out.println("S={"+s+"}");

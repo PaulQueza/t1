@@ -7,4 +7,8 @@ public class ocurrencias {
     public void execute(){
         // Ejecutar las ocurrencias
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+>>>>>>> Stashed changes

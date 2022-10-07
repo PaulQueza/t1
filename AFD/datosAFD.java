@@ -7,17 +7,6 @@ import java.util.Scanner;
 public class datosAFD {
     ArrayList<String> alfabeto;
     ArrayList<Integer> todos_estados;
-<<<<<<< Updated upstream
-    File AFD=new File("./Archivos/AFD.txt");
-    File TABLA_FINAL =new File("./Archivos/tabla_final.txt");
-    ArrayList<Integer> f;
-    int s;
-
-    public datosAFD(ArrayList<String> alfabeto){
-        todos_estados = new ArrayList<Integer>();
-        f = new ArrayList<Integer>();
-        this.alfabeto=alfabeto;
-=======
     File AFD = new File("./Archivos/AFD.txt");
     File TABLA_FINAL = new File("./Archivos/tabla_final.txt");
     ArrayList<Integer> f;
@@ -27,7 +16,6 @@ public class datosAFD {
         todos_estados = new ArrayList<Integer>();
         f = new ArrayList<Integer>();
         this.alfabeto = alfabeto;
->>>>>>> Stashed changes
         obtenerEstados();
         obtenerSyF();
     }
@@ -39,29 +27,17 @@ public class datosAFD {
             Scanner input = new Scanner(AFD);
             while (input.hasNext()) {
                 line = input.next();
-<<<<<<< Updated upstream
-                if(posicion==0){
-                    // Primer estado (SI LLEGAMOS AL FINAL DEL TXT ENCONTRAMOS EN EL PRIMER ESTADO EL ULTIMO ESTADO DEL AUTOMATA)
-                    estadoFinal=Integer.parseInt(line);
-=======
                 if (posicion == 0) {
                     // Primer estado (SI LLEGAMOS AL FINAL DEL TXT ENCONTRAMOS EN EL PRIMER ESTADO
                     // EL ULTIMO ESTADO DEL AUTOMATA)
                     estadoFinal = Integer.parseInt(line);
->>>>>>> Stashed changes
                     posicion++;
                 } else if (posicion == 1) {
                     // Simbolo
                     posicion++;
-<<<<<<< Updated upstream
-                }else{
-                    // Segundo estado     
-                    posicion=0;
-=======
                 } else {
                     // Segundo estado
                     posicion = 0;
->>>>>>> Stashed changes
                 }
             }
             input.close();
@@ -72,15 +48,10 @@ public class datosAFD {
             todos_estados.add(i);
         }
     }
-<<<<<<< Updated upstream
-    public void obtenerSyF(){
-        int posicion=0,estado=0;String line="";
-=======
 
     public void obtenerSyF() {
         int posicion = 0, estado = 0;
         String line = "";
->>>>>>> Stashed changes
         // La cantidad de columnas de el txt, la suma del alfabeto mas la columna
         // q(Numero de estado ) y e(Conjunto del estado)
         int cantidad_de_columnas = alfabeto.size() + 2;
@@ -96,15 +67,6 @@ public class datosAFD {
                     posicion++;
                 } else if (posicion == 1) {
                     // Columna estados
-<<<<<<< Updated upstream
-                    posicion++;
-                } else if (posicion < cantidad_de_columnas) {
-                    // Columna de el caracter del alafabeto
-                    posicion++;
-                }else{
-                    // Columna donde se menciona si es un estado final o no
-                    if(line.equals("FINAL")){
-=======
                     posicion++;
                 } else if (posicion < cantidad_de_columnas) {
                     // Columna de el caracter del alafabeto
@@ -112,7 +74,6 @@ public class datosAFD {
                 } else {
                     // Columna donde se menciona si es un estado final o no
                     if (line.equals("FINAL")) {
->>>>>>> Stashed changes
                         this.f.add(estado);
                     }
                     posicion = 0;
@@ -122,11 +83,7 @@ public class datosAFD {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-<<<<<<< Updated upstream
-        this.s=0;
-=======
         this.s = 0;
->>>>>>> Stashed changes
     }
 
     public void imprimirAlfabeto() {
@@ -192,19 +149,6 @@ public class datosAFD {
 
     public void imprimirSyF() {
         // Simplemente mostramos el estado inicial y final
-<<<<<<< Updated upstream
-        System.out.println("S={"+s+"}");
-        System.out.print("F={");
-        for(int i = 0; i<f.size(); i++){
-            if(i+1==f.size()){
-                System.out.print(f.get(i));
-            }else{
-                System.out.print(f.get(i)+",");
-            }
-        }
-        System.out.println("}");
-    }   
-=======
         System.out.println("S={" + s + "}");
         System.out.print("F={");
         for (int i = 0; i < f.size(); i++) {
@@ -216,5 +160,4 @@ public class datosAFD {
         }
         System.out.println("}");
     }
->>>>>>> Stashed changes
 }

@@ -45,16 +45,7 @@ public class elaborar_tabla_final {
 
         // Hacemos la tabla
         String conjunto = obtenerPrimerEstadoTabla(TABLA_E);
-<<<<<<< Updated upstream
-        // escribirTablaFinal(0, conjunto, TABLA_FINAL);
-        System.out.println("---------------------- SEGUNDO COSO ----------------------");
-        System.out.println("");
-        System.out.println("");
-        buscarConjuntosTesteo(conjunto, alfabeto, TABLA_TRANSICIONES);
-        System.out.println("---------------------- FIN ----------------------");
-=======
         buscarConjuntos(conjunto, alfabeto, TABLA_TRANSICIONES);
->>>>>>> Stashed changes
         transformar_tabla_afd(TABLA_FINAL, conjuntosNuevos);
 
     }
@@ -81,72 +72,30 @@ public class elaborar_tabla_final {
             ex.printStackTrace();
         }
         if (conjunto2.equals("NULL")) {
-<<<<<<< Updated upstream
-            System.out.println("Primer estado de la tabla-------------> {" + conjunto1 + "}");
             primerEstado = conjunto1;
         } else {
-            System.out.println("Primer estado de la tabla-------------> {" + conjunto1 + "," + conjunto2 + "}");
-=======
-            primerEstado = conjunto1;
-        } else {
->>>>>>> Stashed changes
             primerEstado = conjunto1 + "," + conjunto2;
         }
         return primerEstado;
 
     }
 
-<<<<<<< Updated upstream
-    public void buscarConjuntosTesteo(String estadosBuscar, ArrayList<String> alfabeto, File archivo) {
-        // añadimos el primer estado
-        conjuntosNuevos.add(estadosBuscar);
-        System.out.println("");
-        System.out.println("------------------------------------");
-=======
     public void buscarConjuntos(String estadosBuscar, ArrayList<String> alfabeto, File archivo) {
         // añadimos el primer estado
         conjuntosNuevos.add(estadosBuscar);
->>>>>>> Stashed changes
         // Encuentra todos los epsilon de un estado
         String transicionConjunto="";
         int nestado = 0;
         String[] estadosSeparados;
         for (int recorrer = 0; recorrer < conjuntosNuevos.size(); recorrer++) {
-<<<<<<< Updated upstream
-            System.out.println("");
-            System.out.println("------------------------------------");
-            estadosSeparados = conjuntosNuevos.get(recorrer).split(",");
-            System.out.println("Conjunto el cual se va a revisar ------> " + conjuntosNuevos.get(recorrer));
-            transicionConjunto=""; 
-            for (int i = 0; i < alfabeto.size(); i++) {
-                // Buscamos las transiciones del alfabeto para cada estado
-                System.out.println("--- ALFABETO "+alfabeto.get(i)+" ---");
-                System.out.print("| estadosSepados ");
-                for(int j=0; j<estadosSeparados.length;j++){
-                    if(j==0){
-                        System.out.print(""+estadosSeparados[j]);
-                    }else{
-                        System.out.print(" "+estadosSeparados[j]);
-                    }
-                }
-                System.out.println(" |");
-                System.out.println(" ");
-                if(transicionConjunto.equals("")){
-                    
-=======
             estadosSeparados = conjuntosNuevos.get(recorrer).split(",");
             transicionConjunto=""; 
             for (int i = 0; i < alfabeto.size(); i++) {
                 if(transicionConjunto.equals("")){
->>>>>>> Stashed changes
                     transicionConjunto = conjuntosNuevos.get(recorrer)+" "+buscarTransicionesConjunto(alfabeto.get(i), estadosSeparados,i);
                 }else{
                     transicionConjunto +=" "+ buscarTransicionesConjunto(alfabeto.get(i), estadosSeparados,i);
                 }
-<<<<<<< Updated upstream
-                System.out.println("----------------------");
-=======
->>>>>>> Stashed changes
             }
             escribirTablaFinal(nestado, transicionConjunto+" "+revisar_estadoFinal(conjuntosNuevos.get(recorrer)), TABLA_FINAL);
             nestado++;
@@ -170,22 +119,12 @@ public class elaborar_tabla_final {
         transiciones = eliminarEstadosRepetidos(transiciones);
         conjuntosNuevos.add(transiciones);
         conjuntosNuevos = eliminarConjuntosRepetidos(conjuntosNuevos);
-<<<<<<< Updated upstream
-        System.out.println("Transiciones encontradas --> "+transiciones);
-
-=======
->>>>>>> Stashed changes
         return transiciones;
     }
 
     public String leerTablaTransiciones(String letraAlfabeto, String estado, int posicionAlfabeto) {
         String conjuntoEncontrado = "";
         String line;
-<<<<<<< Updated upstream
-        int posicionEstado = Integer.parseInt(estado);
-        System.out.println("Posicion estado en la tabla => "+posicionEstado+", Posicion Letra buscando => "+posicionAlfabeto);
-=======
->>>>>>> Stashed changes
         try {
             int posicion = 0;
             Scanner input = new Scanner(TABLA_TRANSICIONES);
@@ -194,18 +133,10 @@ public class elaborar_tabla_final {
             // Buscamos el estado en la tabla
             while (input.hasNext()) {
                 line = input.next();
-<<<<<<< Updated upstream
-                System.out.println("¿Estado de la tabla("+line+") == ("+estado+") estadobuscado?");
-=======
->>>>>>> Stashed changes
                 if (line.equals(estado)) {
                     // Si encotramos el estado, vemos las transiciones para la letra en especifico
                     while (posicion <= posicionAlfabeto) {
                         line = input.next();
-<<<<<<< Updated upstream
-                        System.out.println("Avanzando en la poscion del texto... --> "+line);
-=======
->>>>>>> Stashed changes
                         posicion++;
                     }
                     /*
@@ -221,10 +152,6 @@ public class elaborar_tabla_final {
                         } else {
                             conjuntoEncontrado += "," + line;
                         }
-<<<<<<< Updated upstream
-                        System.out.println("Se encontro un conjunto, ---> " + line + ", para el alfabeto---> " + letraAlfabeto+", estado encontrado ---> "+conjuntoEncontrado);
-=======
->>>>>>> Stashed changes
                     }
                     posicion = 0;
                     break;
@@ -289,92 +216,18 @@ public class elaborar_tabla_final {
                 dato += "," + newList.get(i);
             }
         }
-<<<<<<< Updated upstream
-        // System.out.println("Dato sin estados repetidos -----> " + dato);
-=======
->>>>>>> Stashed changes
         return dato;
     }
 
     public ArrayList<String> eliminarConjuntosRepetidos(ArrayList<String> al) {
         ArrayList<String> newList = new ArrayList<String>();
-<<<<<<< Updated upstream
-        // System.out.println("ArrayList con(puede) los conjuntos repetidos ---> " +
-        // al);
-=======
->>>>>>> Stashed changes
         for (int i = 0; i < al.size(); i++) {
             if (!newList.contains(al.get(i))) {
                 newList.add(al.get(i));
             }
         }
-<<<<<<< Updated upstream
-        // System.out.println("ArrayList sin los conjuntos repetidos ---> " + al);
         return newList;
     }
-
-    public String buscarElConjunto(String conjunto) {
-        // ARREGLAR
-        // Buscamos el conjunto en la tabla de epsilons
-        String line = "", conjuntoTabla = "";
-        int posicion = 0, estadoTabla = 0, estadoBuscar = 0;
-        ArrayList<String> estadosSeparados = new ArrayList<String>();
-        String[] separarEstadosArray = conjunto.split(",");
-        conjunto = "";
-
-        for (int i = 0; i < separarEstadosArray.length; i++) {
-            estadosSeparados.add(separarEstadosArray[i]);
-        }
-        for (int i = 0; i < estadosSeparados.size(); i++) {
-            try {
-                Scanner input = new Scanner(TABLA_E);
-                while (input.hasNext()) {
-                    line = input.next();
-                    if (posicion == 0) {
-                        // Estado que estamos buscando
-                        estadoBuscar = Integer.parseInt(estadosSeparados.get(i));
-                        System.out.println();
-                        System.out.println("Buscando " + estadoBuscar);
-                        System.out.println();
-                        // Estado de la tabla
-                        estadoTabla = Integer.parseInt(line);
-                        posicion++;
-                    } else if (posicion == 1) {
-                        // Conjunto de la tabla
-                        conjuntoTabla = line;
-                        if (estadoBuscar == estadoTabla) {
-                            separarEstadosArray = conjuntoTabla.split(",");
-                            for (int j = 0; j < separarEstadosArray.length; j++) {
-                                if (!separarEstadosArray[j].equals("NULL")) {
-                                    estadosSeparados.add(separarEstadosArray[j]);
-                                }
-                            }
-                            System.out.println("Conjunto encontrado !!! Conjunto total anashei --> " + conjunto
-                                    + " Arreglo Separarestados ---> " + estadosSeparados);
-                        }
-                        posicion = 0;
-                    }
-                }
-                input.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
-        conjunto = "";
-        for (int i = 0; i < estadosSeparados.size(); i++) {
-            if (i == 0) {
-                conjunto = estadosSeparados.get(i);
-            } else {
-                conjunto += "," + estadosSeparados.get(i);
-            }
-        }
-        return conjunto;
-    }
-
-=======
-        return newList;
-    }
->>>>>>> Stashed changes
     public String buscarTablaEpsilon(String conjunto) {
         String line, nEstado = "", conjuntoEstados = "";
         int posicion = 0;
@@ -415,30 +268,14 @@ public class elaborar_tabla_final {
         for (int i = 0; i < recorrerEstadosEncontrados.size(); i++) {
             estadoBuscado = Integer.parseInt(recorrerEstadosEncontrados.get(i));
             elementoTabla = tablaEpsilon.get(estadoBuscado);
-<<<<<<< Updated upstream
-            System.out.println("EstadoBuscando-->" + estadoBuscado + ", elementoTabla-->" + elementoTabla);
-            if (elementoTabla.equals("" + estadoBuscado)) {
-                // No se encontro ningun elemento distinto al que se esta buscando
-                System.out.println("No se encontro ningun elemento distinto al que se esta buscando ");
-            } else {
-                // Se encontro un elemento distinto al que se esta buscando
-                System.out.println("Se encontro un elemento distinto al que se esta buscando en el estado: "
-                        + estadoBuscado + ", el conjunto en total es: " + elementoTabla);
-=======
             if (elementoTabla.equals("" + estadoBuscado)) {
                 // No se encontro ningun elemento distinto al que se esta buscando
             } else {
                 // Se encontro un elemento distinto al que se esta buscando
->>>>>>> Stashed changes
                 separarEstados = elementoTabla.split(",");
                 for (int j = 0; j < separarEstados.length; j++) {
                     if (!separarEstados[j].equals("" + estadoBuscado)) {
                         recorrerEstadosEncontrados.add(separarEstados[j]);
-<<<<<<< Updated upstream
-                        System.out.println(
-                                "Se encontro un estado nuevo, se agrego al arreglo ---------> " + separarEstados[j]);
-=======
->>>>>>> Stashed changes
                     }
                 }
             }
@@ -450,10 +287,6 @@ public class elaborar_tabla_final {
             } else {
                 conjunto += "," + recorrerEstadosEncontrados.get(i);
             }
-<<<<<<< Updated upstream
-            System.out.println("DATO ARRAYLIST --> " + recorrerEstadosEncontrados.get(i));
-=======
->>>>>>> Stashed changes
         }
         return conjunto;
     }
@@ -463,10 +296,6 @@ public class elaborar_tabla_final {
         String conjuntoEstado = "", conjuntoComparar = "";
         String line = "";
         // La cantidad de columnas de el txt, la suma del alfabeto mas la columna
-<<<<<<< Updated upstream
-        // q(Numero de estado ) y e(Conjunto del estado)
-=======
->>>>>>> Stashed changes
         int cantidad_de_columnas = alfabeto.size() + 2;
         try {
             Scanner input = new Scanner(archivoLeer);
@@ -486,12 +315,6 @@ public class elaborar_tabla_final {
                     // Columna de el caracter del alafabeto
                     conjuntoComparar = line;
                     if (!conjuntoComparar.equals("NULL")) {
-<<<<<<< Updated upstream
-                        System.out.println("{q" + buscar_numero_conjunto(estados, conjuntoEstado) + ", "
-                                + alfabeto.get(posicion - 2) + ", q" + buscar_numero_conjunto(estados, conjuntoComparar)
-                                + "}");
-=======
->>>>>>> Stashed changes
                         escribir_afd_archivo(AFD, "" + buscar_numero_conjunto(estados, conjuntoEstado),
                                 alfabeto.get(posicion - 2), "" + buscar_numero_conjunto(estados, conjuntoComparar));
                     }

@@ -160,4 +160,7 @@ public class datosAFD {
         }
         System.out.println("}");
     }
+    public ArrayList<Integer> getEstadosFinales(){
+        return f;
+    }
 }

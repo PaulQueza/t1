@@ -23,5 +23,7 @@ public class AFNDtoAFD {
         datos.imprimirAFD();
         datos.imprimirSyF();
     }
-    
+    public ArrayList<Integer> getEstadosFinales(){
+        return datos.getEstadosFinales();
+    }
 }
